@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -15,6 +17,8 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+
+		fmt.Println(time.Now())
 	}).Methods("GET")
 
 	http.Handle("/", r)
