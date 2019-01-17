@@ -1,15 +1,15 @@
-build:
+build: main.go
 	GOOS=linux GOARCH=amd64 go build main.go
 	npm run build
 
 # こういう書き方もある
 # 依存ファイルは存在していたらパスされる
-# build: main bundle.js
+# build: main static/js/bundle.js
 
 # main:
 # 	GOOS=linux GOARCH=amd64 go build main.go
 
-# bundle.js:
+# static/js/bundle.js:
 # 	npm run build
 
 zip: build
@@ -27,7 +27,7 @@ ssh: # \の前にスペースないと怒られる
 clean:
 	rm main
 	rm main.tar.gz
-
+
 deploy: zip # make deploy前にzipを実行
 	make upload
 	make clean
