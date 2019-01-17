@@ -27,10 +27,8 @@ ssh: # \の前にスペースないと怒られる
 clean:
 	rm main
 	rm main.tar.gz
-
+
 deploy: zip # make deploy前にzipを実行
-	make build
-	make zip
 	make upload
 	make clean
 	make ssh

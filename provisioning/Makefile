@@ -5,5 +5,6 @@ unzip:
 nginx:
 	sudo service nginx start
 
+# うまくバックグラウンド起動にできないから出力先を変更
 start: unzip nginx
-	./main
+	./main >> /dev/null &
